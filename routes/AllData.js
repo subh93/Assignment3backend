@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const ShowAllData = require('../models/accountdetails')
 
-router.post('/removeaccount', async(req,res)=>{
+router.delete('/removeaccount', async(req,res)=>{
     const {id} = req.body;
     try {
         await ShowAllData.findOneAndDelete({id})
@@ -12,7 +12,7 @@ router.post('/removeaccount', async(req,res)=>{
     }
 })
 
-router.post('/updatedetails', async(req,res)=>{
+router.put('/updatedetails', async(req,res)=>{
     const { id,name,email,phone,website } = req.body;
     try {
         await ShowAllData.findOneAndUpdate({id},
