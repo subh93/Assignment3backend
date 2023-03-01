@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const ShowAllData = require('../models/accountdetails')
 
-router.delete('/removeaccount', async(req,res)=>{
+router.post('/removeaccount', async(req,res)=>{
     const {id} = req.body;
     try {
         await ShowAllData.findOneAndDelete({id})
